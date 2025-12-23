@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const aStar = require('../controllers/aStarController');
 const bfs = require('../controllers/bfsController');
 const dfs = require('../controllers/dfsController');
@@ -8,6 +9,7 @@ const hill = require('../controllers/hillClimbingController');
 const best = require('../controllers/bestFirstController');
 const bb = require('../controllers/branchAndBoundController');
 const beam = require('../controllers/beamSearchController');
+const alphaBeta = require('../controllers/alphaBetaController'); // ✅ ADD
 
 router.post('/a-star', aStar.run);
 router.post('/bfs', bfs.run);
@@ -17,5 +19,6 @@ router.post('/hill-climbing', hill.run);
 router.post('/best-first', best.run);
 router.post('/branch-and-bound', bb.run);
 router.post('/beam', beam.run);
+router.post('/alpha-beta', alphaBeta.run); // ✅ NEW ROUTE
 
 module.exports = router;
